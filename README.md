@@ -98,7 +98,7 @@ Here is the breakdown of the points related to each task.
 Judging would be done on the basis of your implementation and authenticity.
 
 ## Deadline
-You'll have a week to complete this task. Hence, the deadline of this task is **26th June, 2022** i.e. till the end of this month.
+You'll have a week to complete this task. Hence, the deadline of this task is **26th June, 2022**.
 
 ## Submission
 * Follow the instructions to setup this project.
