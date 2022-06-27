@@ -52,7 +52,7 @@ export default function TodoListItem(props) {
     })
       .then(() => {
         displaySuccessToast("Task deleted successfully!");
-        props.displayTasks();
+        props.renderTasks();
       })
       .catch((err) => {
         displayErrorToast("Something went wrong!");
@@ -92,7 +92,7 @@ export default function TodoListItem(props) {
           document
             .getElementById("task-actions-" + props.id)
             .classList.remove("hideme");
-          props.displayTasks();
+          props.renderTasks();
         })
         .catch(function (err) {
           displayErrorToast("Something went wrong!");
@@ -113,7 +113,7 @@ export default function TodoListItem(props) {
         />
         <div id={doneId} className="hideme">
           <button
-            className="bg-transparent dark:bg-gray-500 dark:text-gray-50 hover:bg-gray-500 text-gray-700 text-sm  hover:text-white py-2 px-3 border border-gray-500 hover:border-transparent dark:hover:bg-green-600 rounded todo-update-task"
+            className="bg-transparent dark:bg-green-600 dark:hover:bg-green-700 dark:text-gray-50 hover:bg-gray-500 text-gray-700 text-sm  hover:text-white py-2 px-3 border border-gray-500 hover:border-transparent rounded todo-update-task"
             type="button"
             onClick={() => updateTask(props.id)}
           >

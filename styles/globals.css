@@ -50,3 +50,14 @@
   max-width: 90%;
   align-self: center;
 }
+.task-container {
+  overflow-y: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.task-container::-webkit-scrollbar {
+  width: 0 !important;
+}
+.rotate-icons {
+  transform: rotate(180deg);
+}
