@@ -1,11 +1,19 @@
 module.exports = {
-  purge: ['./pages/**/*.{js,jsx}', './components/**/*.{js,jsx}'],
-  darkMode: false, // or 'media' or 'class'
+  content: [
+    "./pages/**/*.{js,ts,jsx,tsx}",
+    "./components/**/*.{js,ts,jsx,tsx}",
+  ],
+  purge: ["./pages/**/*.{js,jsx}", "./components/**/*.{js,jsx}"],
+  darkMode: "class", // or 'media' or 'class'
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        lato: ["Lato", "sans-serif"],
+      },
+    },
   },
   variants: {
-    display: ['group-hover'],
+    display: ["group-hover"],
   },
   plugins: [],
-}
+};

@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "Lato", sans-serif;
+  src: url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;1,300;1,400&display=swap");
+}
 .hideme {
   display: none !important;
 }
@@ -20,5 +24,40 @@
 }
 
 .todo-task {
-  max-width: 260px;
+  max-width: 225px;
+  overflow-x: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.todo-task::-webkit-scrollbar {
+  width: 0 !important;
+}
+
+.smooth-transition {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 450ms;
+}
+.disable-select {
+  user-select: none; /* supported by Chrome and Opera */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+}
+.mobile-width-adjust {
+  max-width: 90%;
+  align-self: center;
+}
+.task-container {
+  overflow-y: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.task-container::-webkit-scrollbar {
+  width: 0 !important;
+}
+.rotate-icons {
+  transform: rotate(180deg);
 }
