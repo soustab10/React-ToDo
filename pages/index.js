@@ -8,13 +8,6 @@ import { API_URL } from "../utils/constants";
 import { auth_required } from "../middlewares/auth_required";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import {
-  displaySuccessToast,
-  displayErrorToast,
-  displayWarningToast,
-  displaySuccessToastDark,
-  displayErrorToastDark,
-} from "./toast";
 
 import RestartAltIcon from "@mui/icons-material/RestartAlt";
 import SortIcon from "@mui/icons-material/Sort";
@@ -63,7 +56,7 @@ export default function Home() {
       })
       .catch((err) => {
         console.log("Error:" + err);
-        displayErrorToast("Error: " + err);
+        toast.error("Error: " + err);
       });
   }
 

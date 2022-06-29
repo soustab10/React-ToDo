@@ -2,11 +2,9 @@ import { useState } from "react";
 import axios from "../utils/axios";
 import { useAuth } from "../context/auth";
 import { API_URL } from "../utils/constants";
-import {
-  displayErrorToast,
-  displaySuccessToast,
-  displayWarningToast,
-} from "../pages/toast";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 import TodoListItem from "../components/TodoListItem";
 
 export default function AddTask(props) {
@@ -21,7 +19,7 @@ export default function AddTask(props) {
 
   const addTask = () => {
     if (task == "") {
-      displayWarningToast("Task title is required!");
+      toast.warn("Task title is required!");
       return;
     } else {
       const dataForApiRequest = {
@@ -39,10 +37,10 @@ export default function AddTask(props) {
           setTask("");
           props.renderTasks();
 
-          displaySuccessToast("Task added successfully");
+          toast.success("Task added successfully");
         })
         .catch(function (err) {
-          displayErrorToast("Error!! Task could not be added!");
+          toast.error("Error!! Task could not be added!");
         });
     }
   };

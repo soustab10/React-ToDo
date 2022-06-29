@@ -4,11 +4,8 @@ import { useAuth } from "../context/auth";
 import { useRouter } from "next/router";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import {
-  displaySuccessToast,
-  displayErrorToast,
-  displayWarningToast,
-} from "../pages/toast";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function Register() {
   const { setToken } = useAuth();
@@ -34,11 +31,11 @@ export default function Register() {
       username === "" ||
       password === ""
     ) {
-      displayWarningToast("Please fill all required fields!");
+      toast.warn("Please fill all required fields!");
       return false;
     }
     if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
-      displayWarningToast("Please enter a valid email address.");
+      toast.warn("Please enter a valid email address.");
 
       return false;
     }
@@ -65,7 +62,7 @@ export default function Register() {
           router.push("LOGIN", "/");
         })
         .catch(function (err) {
-          displayErrorToast("Account with same Username already exists!");
+          toast.error("Account with same Username already exists!");
           setUsername("");
           setPassword("");
         });

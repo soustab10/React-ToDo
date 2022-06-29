@@ -6,11 +6,8 @@ import { useRouter } from "next/router";
 import { no_auth_required } from "../middlewares/no_auth_required";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import {
-  displayErrorToast,
-  displaySuccessToast,
-  displayWarningToast,
-} from "../pages/toast";
+
+import "react-toastify/dist/ReactToastify.css";
 
 export default function RegisterForm() {
   no_auth_required();
@@ -46,7 +43,7 @@ export default function RegisterForm() {
     };
 
     if (inputData.username == "" || inputData.password == "") {
-      displayWarningToast("Please fill all required fields!");
+      toast.warn("Please fill all required fields!");
       return;
     }
 
@@ -56,13 +53,13 @@ export default function RegisterForm() {
       data: inputData,
     })
       .then((res) => {
-        displaySuccessToast("User logged in successfully");
+        toast.success("User logged in successfully");
         const token = res.data.token;
         setToken(token);
         router.push("LOGIN", "/");
       })
       .catch(function (err) {
-        displayErrorToast("Invalid credentials! Please try again.");
+        toast.error("Invalid credentials! Please try again.");
         setLoginData({
           usernameInput: "",
           passwordInput: "",

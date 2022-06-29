@@ -4,11 +4,8 @@ import React, { useState } from "react";
 import { useAuth } from "../context/auth";
 import axios from "../utils/axios";
 import { API_URL } from "../utils/constants";
-import {
-  displayErrorToast,
-  displaySuccessToast,
-  displayWarningToast,
-} from "../pages/toast";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import useDarkMode from "../pages/useDarkMode";
 
 import DeleteIcon from "@mui/icons-material/Delete";
@@ -51,11 +48,11 @@ export default function TodoListItem(props) {
       method: "DELETE",
     })
       .then(() => {
-        displaySuccessToast("Task deleted successfully!");
+        toast.success("Task deleted successfully!");
         props.renderTasks();
       })
       .catch((err) => {
-        displayErrorToast("Something went wrong!");
+        toast.error("Something went wrong!");
       });
   };
 
@@ -66,7 +63,7 @@ export default function TodoListItem(props) {
      * @todo 2. Update the task in the dom.
      */
     if (task === "") {
-      displayWarningToast("Task title cannot be empty!");
+      toast.warn("Task title cannot be empty!");
     } else {
       axios({
         headers: {
@@ -79,7 +76,7 @@ export default function TodoListItem(props) {
         },
       })
         .then(() => {
-          displaySuccessToast("Todo has been successfully updated...");
+          toast.success("Todo has been successfully updated...");
           document
             .getElementById("input-button-" + props.id)
             .classList.add("hideme");
@@ -95,7 +92,7 @@ export default function TodoListItem(props) {
           props.renderTasks();
         })
         .catch(function (err) {
-          displayErrorToast("Something went wrong!");
+          toast.error("Something went wrong!");
         });
     }
   };
